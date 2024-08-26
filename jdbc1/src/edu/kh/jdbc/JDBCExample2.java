@@ -104,19 +104,6 @@ public class JDBCExample2 {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	} // main end
 	
 	

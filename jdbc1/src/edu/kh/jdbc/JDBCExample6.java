@@ -92,15 +92,6 @@ public class JDBCExample6 {
 			}
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	} //main end
 	
 }
