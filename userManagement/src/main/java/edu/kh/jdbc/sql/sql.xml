@@ -53,5 +53,46 @@
 					FROM TB_USER
 					ORDER BY USER_NO ASC
 	</entry>
+	
+	
+	<entry key = "search">
+				SELECT
+						USER_NO,
+						USER_ID,
+						USER_PW,
+						USER_NAME,
+						TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일"') ENROLL_DATE
+					FROM TB_USER
+					WHERE USER_ID lIKE ?
+					ORDER BY USER_NO ASC
+	</entry>
+	
+	
+	<entry key="selectUser">
+			SELECT
+						USER_NO,
+						USER_ID,
+						USER_PW,
+						USER_NAME,
+						TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일"') ENROLL_DATE
+					FROM TB_USER
+					WHERE USER_NO = TO_NUMBER(?)
+	</entry>
+	
+	
+		<entry key="deleteUser">
+					DELETE
+					FROM TB_USER
+					WHERE USER_NO = ?
+	</entry>
+	
+
+		<entry key="updateUser">
+					UPDATE TB_USER
+					SET
+					USER_NAME = ? , USER_PW = ?
+					WHERE USER_NO = ?
+	</entry>
+	
 
 </properties>

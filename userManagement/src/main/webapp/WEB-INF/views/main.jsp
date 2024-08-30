@@ -8,7 +8,7 @@
   <title>User 관리 프로젝트</title>
 </head>
 <body>
-  <img src="https://cdn.pixabay.com/photo/2023/03/27/17/24/cat-7881256_1280.png" width=500px height=500px>
+  <img src="https://cdn.pixabay.com/photo/2023/03/27/17/24/cat-7881256_1280.png" width=400px height=400px>
  <%-- c:if 조건, 로그인이 안 되어 있는 경우 
  session scope에  loginUser가 없는 경우 --%>
  <c:if test="${empty sessionScope.loginUser}">
@@ -16,10 +16,10 @@
     <form action="/login" method="post">
       
       <div>
-      ID : <input type="text" name="userId">
+      ID <input type="text" name="userId">
       </div>
       <div>
-      PW : <input type="password" name="userPw">
+      PW <input type="password" name="userPw">
       </div>
       <div>
       <button>로그인</button>
@@ -44,7 +44,7 @@
 
 <h3>메뉴</h3>
   <ul>
-  <li><a href="#"> 사용자 목록 조회 </a></li>
+  <li><a href="/selectAll"> 사용자 목록 조회 </a></li>
   </ul>
 
   </c:if>

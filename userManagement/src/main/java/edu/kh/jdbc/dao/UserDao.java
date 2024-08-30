@@ -38,4 +38,13 @@ public interface UserDao {
 
 	List<User> selectAll(Connection conn) throws Exception;
 
+	List<User> search(Connection conn, String searchId) throws Exception;
+
+	User selectUser(Connection conn, String selectUser) throws Exception;
+
+	int deleteUser(Connection conn, int userNo) throws Exception;
+
+	int updateUser(Connection conn, User user) throws Exception;
+
+
 }

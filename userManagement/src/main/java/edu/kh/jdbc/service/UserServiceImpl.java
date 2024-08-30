@@ -72,6 +72,71 @@ public class UserServiceImpl implements UserService {
 		
 		return userList;
 	}
+
+	@Override
+	public List<User> search(String searchId) throws Exception {
+		
+		// 커넥션 생성
+		Connection conn = getConnection();
+		
+		// 데이터 가공처리
+		// 가공 진행 (없으면 생략)
+		searchId = '%' + searchId + '%'; // %검색어% 형태로 가공
+		
+		// DAO 호출 후 결과 반환 받기
+		List<User> userList = dao.search(conn, searchId);
+		
+		close(conn);
+		
+		return userList;
+	}
+
+	@Override
+	public User selectUser(String selectUser) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		User user = dao.selectUser(conn, selectUser);
+		// The method selectUser(Connection, User) in the type UserDao is not applicable for the arguments (Connection, String) 
+		// dao유형의 메서드는 인수에 적용할 수 없습니다 ..'ㅡ`?
+		// 중간에 String이 User 로 작성되어서 그렇음
+		
+		
+		return user;
+	}
+
+	
+	@Override
+	public int deleteUser(int userNo) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.deleteUser(conn, userNo);
+		
+		// 트랜젝션 제어 처리 DML을 수행했으니까 
+		if(result > 0)  commit(conn);
+		else			rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+	
+
+	@Override
+	public int updateUser(User user) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.updateUser(conn, user);
+		
+		if(result > 0)  commit(conn);
+		else			rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
 	
 	
 }
