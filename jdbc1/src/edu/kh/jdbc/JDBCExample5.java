@@ -51,6 +51,8 @@ public class JDBCExample5 {
 			
 			conn = DriverManager.getConnection(url, userName, password);
 			
+			// ------
+			
 			System.out.print("아이디 입력 : ");
 			String id = sc.nextLine();
 			
